@@ -1,0 +1,158 @@
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENTS.CSS — Hackathon Upgrade Styles
+   Fixes: Accessibility, Security notice, Context banner
+   ═══════════════════════════════════════════════════ */
+
+/* ── SKIP LINK (Accessibility Fix #1) ── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: var(--saffron, #4512dc);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ── SCREEN READER ONLY (Accessibility Fix #2) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── FOCUS RING — visible keyboard navigation ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--saffron, #FF6B00);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── SECURITY NOTICE in API setup ── */
+.key-security-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--green, #0A7C3E);
+  background: rgba(10, 124, 62, 0.08);
+  border: 1px solid rgba(10, 124, 62, 0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-top: 8px;
+}
+
+/* ── CONTEXT BANNER — what section user is in ── */
+.context-banner {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 107, 0, 0.08);
+  border-left: 3px solid var(--saffron, #FF6B00);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #666);
+  margin: 0 12px 8px;
+}
+.context-banner.visible {
+  display: flex;
+}
+.context-banner strong {
+  color: var(--saffron, #FF6B00);
+}
+
+/* ── CHAT INPUT CHAR COUNTER ── */
+.char-counter {
+  font-size: 0.7rem;
+  color: var(--text-muted, #999);
+  text-align: right;
+  padding: 2px 8px 0;
+}
+.char-counter.near-limit {
+  color: #DC2626;
+}
+
+/* ── ENHANCED QUICK PROMPT BUTTONS ── */
+.quick-btn:focus-visible {
+  outline: 2px solid var(--saffron, #FF6B00);
+  outline-offset: 2px;
+}
+
+/* ── IMPROVED CHAT STATUS ── */
+.chat-status {
+  font-size: 0.75rem;
+  transition: color 0.3s;
+}
+.chat-status.thinking {
+  color: #D97706;
+}
+
+/* ── EXTERNAL LINK INDICATOR ── */
+a[target="_blank"]::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+
+/* ── HIGH CONTRAST FOCUS for tab buttons ── */
+.tab-btn:focus-visible,
+.wiz-step-btn:focus-visible {
+  outline: 3px solid var(--saffron, #FF6B00);
+  outline-offset: 2px;
+}
+
+/* ── REDUCE MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .shape,
+  .ballot-card,
+  .hero-visual,
+  .chat-panel {
+    animation: none !important;
+    transition: none !important;
+  }
+  .skip-link {
+    transition: none;
+  }
+}
+
+/* ── PRINT STYLES ── */
+@media print {
+  .chat-fab,
+  .chat-panel,
+  .navbar,
+  .hero-bg-shapes {
+    display: none !important;
+  }
+  main {
+    margin-top: 0;
+  }
+}
