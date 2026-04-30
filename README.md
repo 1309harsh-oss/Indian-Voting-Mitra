@@ -1,4 +1,4 @@
-# 🗳️ Bharat Chunav Mitra — Your Election Best Friend
+# 🗳️ Indian Voting Mitra — Your Election Param Mitra
 
 > **Hackathon Vertical:** Civic Education & Government Services Assistant
 > An AI-powered, accessible, multilingual platform helping every Indian citizen understand and participate in elections.
